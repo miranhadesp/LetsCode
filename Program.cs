@@ -1,23 +1,46 @@
 ﻿using System;
 
-namespace prj1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+namespace prj1{
 
-            //int x; 
-            //float z;  
-            //double a;
-            //string y;
-            //char c; 
-            //bool b = true;
+    class Program{
+
+        static void Main(string[] args){
 
             const string MensagemBoasVindas = "Hello Word";
+            const string MensagemSistema = "Bem vindo a calculadora";
 
             Console.WriteLine(MensagemBoasVindas);
+            //Console.WriteLine(MensagemSistema);
+         
+            //Menu(); -> pause na calculadora
+
+            EstruturaFor();
+            EstruturaWhile();
+            EstruturaDoWhile();
+            Random();
+
+            }
+
+        static double LerValor1(){
+
+            double x;
+            Console.Write("Digite o primeiro valor: ");
+            Double.TryParse(Console.ReadLine(), out x);
+
+            return x;
+        }
+
+        static double LerValor2(){
+
+            double y;
+            Console.Write("Digite o segundo valor: ");
+            Double.TryParse(Console.ReadLine(), out y);
+
+            return y;
+        }
+
+        static void Menu(){
+
             Console.WriteLine("Escolha uma das opções abaixo:\n");
 
             Console.WriteLine("1 - adição");
@@ -27,94 +50,119 @@ namespace prj1
             Console.WriteLine("5 - módulo");
             Console.WriteLine("6 - sair");
 
-            int opcao;
-            Console.Write("\nEscolha sua opção: ");
-            Int32.TryParse(Console.ReadLine(), out opcao);
+            Console.Write("\nOpção: ");
+            OpcaoSelecionada(Convert.ToInt32(Console.ReadLine()));
+        }
 
-            if(opcao == 6) Environment.Exit(0);
-
-            double x;
-            Console.Write("Digite o primeiro valor: ");
-            Double.TryParse(Console.ReadLine(), out x);
-
-            double y;
-            Console.Write("Digite o segundo valor: ");
-            Double.TryParse(Console.ReadLine(), out y); //verifica se conseguiu converter para double com 'bool krl ='
+        static void OpcaoSelecionada(int opcao){
 
             switch (opcao)
             {
                 case 1:
 
-                    Console.WriteLine($"\nA soma dos dois valores é: {x + y}");
+                    Console.WriteLine($"\nA soma dos dois valores é: {LerValor1() + LerValor2()}\n");
+                    Menu();
                 break;
 
                 case 2:
 
-                    Console.WriteLine($"A subtração dos dois valores é: {x - y}");
+                    Console.WriteLine($"A subtração dos dois valores é: {LerValor1() - LerValor2()}\n");
+                    Menu();
                 break;
 
                 case 3:
 
-                    Console.WriteLine($"A subtração dos dois valores é: {x - y}");
+                    Console.WriteLine($"A multiplicação dos dois valores é: {LerValor1() * LerValor2()}\n");
+                    Menu();
                 break;
 
                 case 4:
 
-                    Console.WriteLine($"A divisão dos dois valores é: {x / y}");
+                    Console.WriteLine($"A divisão dos dois valores é: {LerValor1() / LerValor2()}\n");
+                    Menu();
                 break;
 
                 case 5:
 
-                    Console.WriteLine($"O resto da divisão dos dois valores é: {x % y}\n");
+                    Console.WriteLine($"O resto da divisão dos dois valores é: {LerValor1() % LerValor2()}\n");
+                    Menu();
+                break;
+
+                case 6:
+
+                    Environment.Exit(0);
                 break;
 
                 default:
+
+                    Console.WriteLine("Opção inválida!");
+                    Menu();
+                break;
             }
+        }
 
-            /*
-            if(opcao == 6){
+        static void EstruturaFor(){
 
-                Environment.Exit(0); // sai do programa
-            }
+            Console.Write("Digite um valor para ser calculado seu fatorial: ");
+           
+            int fatorial;
+            Int32.TryParse(Console.ReadLine(), out fatorial);
 
-            else if(opcao < 1 || opcao > 6){ //AND = E -> && //OR = OU -> || // NOT = NÃO = !
-
-                Console.WriteLine("\nOpção incorreta, tente novamente mais tarde");
-                Environment.Exit(0); // sai do programa
-            }
-
-            if(opcao == 1){
-
-                Console.WriteLine($"\nA soma dos dois valores é: {x + y}");
-            }
-
-            else if(opcao == 2){
-
-                Console.WriteLine($"A subtração dos dois valores é: {x - y}");
-            }
+            int res = fatorial;
             
-            else if(opcao == 3){
-
-                Console.WriteLine($"A multiplicação dos dois valores é: {x * y}");
+            //loop numérico
+            for(int i = (fatorial-1); i >= 1; i--){
+                
+                res = res * i;
             }
 
-            else if(opcao == 4){
+            Console.WriteLine($"O resultado em For é: {res}\n");
+        }
 
-                Console.WriteLine($"A divisão dos dois valores é: {x / y}");
+        static void EstruturaWhile(){
+
+            Console.Write("Digite um valor para ser calculado seu fatorial: ");
+            
+            int fatorial, i, res;
+            Int32.TryParse(Console.ReadLine(), out fatorial);
+
+            i = fatorial - 1;
+            res = fatorial;
+
+            while(i > 0){
+
+                res = res * i;
+
+                i--;
             }
-            
-            else if(opcao == 5){
 
-                Console.WriteLine($"O resto da divisão dos dois valores é: {x % y}\n");
-            } */
+            Console.WriteLine($"O resultado em While é: {res}\n");
+        }
 
-            
+        static void EstruturaDoWhile(){
 
-            //necessidade de converter ReadLine() pois o mesmo está em string por padrão
+            int num;
 
-            //Console.Write("\nOpção: ");
-            //int opcao = Convert.ToInt32(Console.ReadLine(); só o int precisa dessa alocação de bit (16, 32, 64)
+            do{
 
+            Console.Write("Adivinhe o número entre 1 e 5: ");
+
+            Int32.TryParse(Console.ReadLine(), out num);
+                
+            } while (num != 3);
+        }
+
+        static void Random(){
+
+            Random random = new Random(); //instanciando a função
+
+            int z = random.Next(5); // n inteiro não negativo até 5
+
+            Console.Write($"Número aleatório: {z}");
+
+            int k = random.Next(1,5); //número inteiro não negativo de 1 até 5
+
+            Console.Write($"Número aleatório: {k}");
         }
     }
 }
