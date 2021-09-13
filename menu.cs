@@ -4,7 +4,9 @@ namespace main{
 
     class Menu{ //classe
 
-        static public void MenuCalc(){ //método
+        public void MenuCalc(){ //método
+
+            Calculadora calc = new Calculadora();
 
             Console.WriteLine("Escolha uma das opções abaixo:\n");
 
@@ -13,10 +15,43 @@ namespace main{
             Console.WriteLine("3 - multiplicação");
             Console.WriteLine("4 - divisão");
             Console.WriteLine("5 - módulo");
-            Console.WriteLine("6 - sair");
+            Console.WriteLine("6 - fatorial");
+            Console.WriteLine("0 - sair da calculadora e voltar ao menu");
 
             Console.Write("\nOpção: ");
-            Opcao.OpcaoSelecionada(Convert.ToInt32(Console.ReadLine()));
+            calc.OpcaoSelecionada(Convert.ToInt32(Console.ReadLine()));
+        }
+
+        public void MenuGeral(){
+
+            Console.WriteLine("Digite a opção desejada: ");
+            Console.WriteLine("1 - calculadora");
+            Console.WriteLine("2 - Cadastrar pessoa");
+            Console.WriteLine("3 - Visualizar dados da pessoa cadastrada");
+            Console.WriteLine("0 - sair do código");
+            Console.Write("\nOpção: ");
+
+
+            switch (Convert.ToInt32(Console.ReadLine())){
+
+                case 1:
+
+                    MenuCalc();
+                break;
+
+                case 0:
+
+                    Environment.Exit(0);
+
+                break;
+
+                default:
+
+                    Console.WriteLine("Opção Inválida!");
+                    MenuGeral();
+                break;
+            }
+
         } 
     }
 }
