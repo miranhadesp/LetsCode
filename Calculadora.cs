@@ -82,8 +82,16 @@ namespace main{
 
             switch (opcao){
 
+                case 0:
+
+                    menu.MenuGeral();
+                break;
+
                 case 1:
 
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Sum();
                     Console.WriteLine($"\nA soma dos dois valores é: {Result}\n");
                     menu.MenuCalc();
                     //classe.método
@@ -91,37 +99,47 @@ namespace main{
 
                 case 2:
 
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Subtract();
                     Console.WriteLine($"A subtração dos dois valores é: {Result}\n");
                     menu.MenuCalc();
                 break;
 
                 case 3:
 
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Mult();
                     Console.WriteLine($"A multiplicação dos dois valores é: {Result}\n");
                     menu.MenuCalc();
                 break;
 
                 case 4:
 
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Div();
                     Console.WriteLine($"A divisão dos dois valores é: {Result}\n");
                     menu.MenuCalc();
                 break;
 
                 case 5:
-
+                    
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Mod();
                     Console.WriteLine($"O resto da divisão dos dois valores é: {Result}\n");
                     menu.MenuCalc();
                 break;
 
                 case 6:
-
+                    
+                    SetNumberOne();
+                    SetNumberTwo();
+                    Fatorial();
                     Console.WriteLine($"O fatorial do número informado é: {Result}\n");
                     menu.MenuCalc();
-                break;
-
-                case 0:
-
-                    menu.MenuGeral();
                 break;
 
                 default:

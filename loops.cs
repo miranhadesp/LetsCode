@@ -1,18 +1,18 @@
 using System;
 
-namespace prj2{
+namespace main{
 
-    class Program{
+    class loop{
 
-        static void Main(){
+        static void aa(){
 
             //int[] ValoresPares = {0, 2, 4, 6}; //matriz unidimensional 
             //int[,] ValoresPeI = {{0, 2, 4, 6}, {1, 3, 5 7}}; //matriz bidimensional
             
             //int[] MatrizUni = new int[6]; //matriz com 6 de tamanho
+
+
         }
-
-
 
         static void For(){
 

@@ -1,8 +1,8 @@
 using System;
 
-namespace prj2{
+namespace main{
 
-    class Pessoa{
+    public class Pessoa{
 
         string nome;
 
