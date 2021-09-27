@@ -28,6 +28,7 @@ namespace main{
             Console.WriteLine("1 - calculadora");
             Console.WriteLine("2 - Cadastrar pessoa");
             Console.WriteLine("3 - Visualizar dados da pessoa cadastrada");
+            Console.WriteLine("4 - Sistema Shopping");
             Console.WriteLine("0 - sair do código");
             Console.Write("\nOpção: ");
 
@@ -38,6 +39,15 @@ namespace main{
 
                     MenuCalc();
                 break;
+
+                case 2:
+
+                case 3:
+
+                case 4:
+
+                    MenuShopping(new List<ILoja>());
+                    break;
 
                 case 0:
 
@@ -51,7 +61,21 @@ namespace main{
                     MenuGeral();
                 break;
             }
-
         } 
+
+        public void MenuShopping(List<ILoja> lojas){
+
+            Polimorfismo menuShopping = new Polimorfismo(lojas);
+
+            Console.WriteLine("\nBem vindo ao Menu do Shopping");
+            Console.WriteLine("1 - Listas Lojas Cadastradas");
+            Console.WriteLine("2 - Realizar Compra");
+            Console.WriteLine("3 - Cadastrar Loja Departamento");
+            Console.WriteLine("4 - Cadastrar Fast Food");
+            Console.WriteLine("5 - Remover Loja ou Fast Food");
+            Console.WriteLine("0 - Sair do menu shopping e voltar ao menu inicial");
+            Console.Write("Opção: ");
+            menuShopping.SelectOption(Convert.ToInt32(Console.ReadLine()));
+        }
     }
 }
